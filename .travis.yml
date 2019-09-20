@@ -6,7 +6,7 @@ before_install:
   - docker build -t tallstak/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run tallstak/docker-react npm run test -- --coverage
+  - docker run -e CI=true tallstak/docker-react npm run test --coverage
 
 deploy:
   provider: elasticbeanstalk
